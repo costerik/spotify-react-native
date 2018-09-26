@@ -5,11 +5,16 @@ import PropTypes from 'prop-types';
 class Main extends Component {
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string,
   };
 
   constructor(props) {
     super(props);
+  }
+
+  static navigationOptions = {
+    //title: "Hello",
+    header: (<Text>Hello</Text>),
+    //headerTintColor: 'black',
   }
 
   render() {
@@ -18,8 +23,10 @@ class Main extends Component {
         <StatusBar
           barStyle="light-content"
         />
-        <Text style={styles.text}>
-          Hello   
+        <Text style={styles.text} onPress={
+          () => this.props.navigation.navigate('SignUp')
+        }>
+          Main
         </Text>
       </View>
     );
