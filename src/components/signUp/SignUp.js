@@ -12,15 +12,18 @@ class SignUp extends Component {
   }
 
   static navigationOptions = {
-    //title: "Hello",
+    title: "Sign up",
     //header: null, // (<Text>Hello</Text>),
-    //headerTintColor: 'black',
+    headerTintColor: 'white',
+    headerTransparent: true
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
+        <Text style={styles.text} onPress={
+          () => this.props.navigation.navigate('EntryView')
+        }>
           Hello SignUp  
         </Text>
       </View>

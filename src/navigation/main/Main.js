@@ -1,12 +1,11 @@
-import React, { Component, Fragment } from 'react';
 import { createStackNavigator } from 'react-navigation';
-import Main from 'SpotifyReactNative/src/components/main';
-import SignUp from 'SpotifyReactNative/src/components/signUp';
+import Sign from '../sign';
+import Entry from '../entry';
 
 export default createStackNavigator(
   {
-    Main,
-    SignUp,
+    Sign,
+    Entry,
   },
   {
     headerMode: 'none',

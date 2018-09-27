@@ -13,7 +13,7 @@ class Main extends Component {
 
   static navigationOptions = {
     //title: "Hello",
-    header: (<Text>Hello</Text>),
+    header: null,
     //headerTintColor: 'black',
   }
 
