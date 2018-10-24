@@ -26,31 +26,38 @@ class Main extends Component {
           <StatusBar
             barStyle="light-content"
           />
-          <View>
+          <View style={styles.wrapperLogo}>
             <Image source={spotifyLogo} style={styles.logo}/> 
           </View>
-          <Swiper autoplay activeDotColor= '#FFF'
-            style={styles.swiper}
-          >
-            <View style={styles.slide}>
-              <Text style={styles.textSlide}>Play your favorite songs and artist.</Text>
-            </View>
-            <View style={styles.slide}>
-              <Text style={styles.textSlide}>No credit card required.</Text>
-            </View>
-            <View style={styles.slide}>
-              <Text style={styles.textSlide}>Listen on all your devices.</Text>
-            </View>
-          </Swiper>
-          <TouchableOpacity style={[styles.button, styles.signUpButton]}>
-            <Text style={styles.buttonText}>sign up free</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.facebookButton]}>
-            <Text style={styles.buttonText}>continue with facebook</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.logInButton]}>
-            <Text style={[styles.buttonText, { color: 'black'}]}>log in</Text>
-          </TouchableOpacity>
+          <View style={styles.wrapperSwiper}>
+            <Swiper 
+              autoplay 
+              activeDotColor= '#FFF'
+              style={styles.swiper}
+              dotStyle={styles.dot}
+            >
+              <View style={styles.slide}>
+                <Text style={styles.textSlide}>Play your favorite songs and artist.</Text>
+              </View>
+              <View style={styles.slide}>
+                <Text style={styles.textSlide}>No credit card required.</Text>
+              </View>
+              <View style={styles.slide}>
+                <Text style={styles.textSlide}>Listen on all your devices.</Text>
+              </View>
+            </Swiper>
+          </View>
+          <View style={styles.wrapperButtons}>
+            <TouchableOpacity style={[styles.button, styles.signUpButton]}>
+              <Text style={styles.buttonText}>sign up free</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.button, styles.facebookButton]}>
+              <Text style={styles.buttonText}>continue with facebook</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.button, styles.logInButton]}>
+              <Text style={[styles.buttonText, { color: 'black'}]}>log in</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
@@ -60,7 +67,8 @@ class Main extends Component {
 const styles = StyleSheet.create({
   container:{
     alignItems: 'center',
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   wrapperContainer:{
     flex: 1,
@@ -68,19 +76,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#a4ddf9',
   },
   textSlide: {
-
-  },
-  textSlide: {
     fontWeight: 'bold',
     color: '#FFF',
+    textAlign: 'center',
+    fontSize: 17,
+  },
+  wrapperLogo:{
+    flex: 4,
   },
   logo: {
+    marginTop: 70,
     height: 50,
     width: 170,
   },
+  wrapperSwiper:{
+    flex:1,
+  },
   swiper: {
   },
-  containerButtons: {
+  wrapperButtons:{
+    flex: 4,
+    alignSelf: 'stretch',
   },
   button: {
     height: 50,
@@ -88,21 +104,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     alignSelf: 'stretch',
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 10,
   },
   buttonText: {
     textTransform: 'uppercase',
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    fontSize: 14,
   },
   signUpButton:{
-    backgroundColor: 'green',
+    backgroundColor: '#1DB954',
   },
   facebookButton:{
-    backgroundColor: '#4267b2',
+    backgroundColor: '#3b5998',
   },
   logInButton:{
     backgroundColor: 'white',
+  },
+  dot: {
+    opacity: 0.6,
   }
 });
 
