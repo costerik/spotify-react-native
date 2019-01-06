@@ -11,10 +11,6 @@ class Main extends Component {
     children: PropTypes.node,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   static navigationOptions = {
     header: null,
   }
@@ -27,11 +23,11 @@ class Main extends Component {
             barStyle="light-content"
           />
           <View style={styles.wrapperLogo}>
-            <Image source={spotifyLogo} style={styles.logo}/> 
+            <Image source={spotifyLogo} style={styles.logo}/>
           </View>
           <View style={styles.wrapperSwiper}>
-            <Swiper 
-              autoplay 
+            <Swiper
+              autoplay
               activeDotColor= '#FFF'
               style={styles.swiper}
               dotStyle={styles.dot}
@@ -49,13 +45,14 @@ class Main extends Component {
           </View>
           <View style={styles.wrapperButtons}>
             <TouchableOpacity style={[styles.button, styles.signUpButton]}>
-              <Text style={styles.buttonText}>sign up free</Text>
+              <Text style={styles.buttonText}>{'sign up free'.toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.facebookButton]}>
-              <Text style={styles.buttonText}>continue with facebook</Text>
+              <Text style={styles.buttonText}>
+                {'continue with facebook'.toUpperCase()}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.logInButton]}>
-              <Text style={[styles.buttonText, { color: 'black'}]}>log in</Text>
+              <Text style={[styles.buttonText, { color: 'black'}]}>{'log in'.toUpperCase()}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -66,13 +63,12 @@ class Main extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    alignItems: 'center',
     marginLeft: 20,
     marginRight: 20,
+    flex: 1
   },
   wrapperContainer:{
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#a4ddf9',
   },
   textSlide: {
@@ -83,10 +79,11 @@ const styles = StyleSheet.create({
   },
   wrapperLogo:{
     flex: 4,
+    alignItems: 'center',
   },
   logo: {
     marginTop: 70,
-    height: 50,
+    height: 52,
     width: 170,
   },
   wrapperSwiper:{
@@ -96,19 +93,16 @@ const styles = StyleSheet.create({
   },
   wrapperButtons:{
     flex: 4,
-    alignSelf: 'stretch',
   },
   button: {
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 50,
-    alignSelf: 'stretch',
     marginTop: 10,
     marginBottom: 10,
   },
   buttonText: {
-    textTransform: 'uppercase',
     color: 'white',
     fontWeight: 'bold',
     letterSpacing: 2,
