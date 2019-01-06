@@ -1,8 +1,8 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Sign from '../sign';
 import Entry from '../entry';
 
-export default createStackNavigator(
+const MainStackNavigator =  createStackNavigator(
   {
     Sign,
     Entry,
@@ -11,3 +11,5 @@ export default createStackNavigator(
     headerMode: 'none',
   }
 );
+
+export default createAppContainer(MainStackNavigator);
