@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Image,View, Text, StatusBar, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-swiper';
-
+import Video from 'react-native-video';
 //Assets
 import spotifyLogo from 'SpotifyReactNative/assets/images/Spotify_Logo_RGB_White.png';
+import bgVideo from 'SpotifyReactNative/assets/videos/bg_video.mp4';
 
 class Main extends Component {
   static propTypes = {
@@ -18,6 +19,13 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.wrapperContainer}>
+        <Video
+          source={bgVideo}
+          style={styles.backgroundVideo}
+          muted
+          resizeMode="cover"
+          repeat
+        />
         <View style={styles.container}>
           <StatusBar
             barStyle="light-content"
@@ -119,6 +127,13 @@ const styles = StyleSheet.create({
   },
   dot: {
     opacity: 0.6,
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   }
 });
 
