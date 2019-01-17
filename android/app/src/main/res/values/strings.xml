@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpotifyReactNative</string>
+    <string name="facebook_app_id">530280477468544</string>
 </resources>
