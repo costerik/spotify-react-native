@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container:{
+  container: {
     marginLeft: 20,
     marginRight: 20,
-    flex: 1
+    flex: 1,
   },
-  wrapperContainer:{
+  wrapperContainer: {
     flex: 1,
     backgroundColor: '#a4ddf9',
   },
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 17,
   },
-  wrapperLogo:{
+  wrapperLogo: {
     flex: 4,
     alignItems: 'center',
   },
@@ -25,12 +25,11 @@ export default StyleSheet.create({
     height: 52,
     width: 170,
   },
-  wrapperSwiper:{
-    flex:1,
+  wrapperSwiper: {
+    flex: 1,
   },
-  swiper: {
-  },
-  wrapperButtons:{
+  swiper: {},
+  wrapperButtons: {
     flex: 4,
   },
   button: {
@@ -47,13 +46,13 @@ export default StyleSheet.create({
     letterSpacing: 2,
     fontSize: 14,
   },
-  signUpButton:{
+  signUpButton: {
     backgroundColor: '#1DB954',
   },
-  facebookButton:{
+  facebookButton: {
     backgroundColor: '#3b5998',
   },
-  logInButton:{
+  logInButton: {
     backgroundColor: 'white',
   },
   dot: {
@@ -65,6 +64,5 @@ export default StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
-  }
+  },
 });
-

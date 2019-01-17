@@ -2,7 +2,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Sign from '../sign';
 import Entry from '../entry';
 
-const MainStackNavigator =  createStackNavigator(
+const MainStackNavigator = createStackNavigator(
   {
     Sign,
     Entry,

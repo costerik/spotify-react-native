@@ -8,6 +8,6 @@ export default createStackNavigator(
     SignUp,
   },
   {
-    //headerMode: 'none',
+    // headerMode: 'none',
   }
 );
