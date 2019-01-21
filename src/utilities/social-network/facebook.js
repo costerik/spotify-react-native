@@ -2,6 +2,7 @@ import FBSDK, { LoginManager } from 'react-native-fbsdk';
 
 const { AccessToken } = FBSDK;
 
+// eslint-disable-next-line
 export const asyncFacebookLogin = async () => {
   try {
     console.log('started login...');
