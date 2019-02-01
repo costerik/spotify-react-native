@@ -66,7 +66,10 @@ class Main extends Component {
             </Swiper>
           </View>
           <View style={styles.wrapperButtons}>
-            <TouchableOpacity style={[styles.button, styles.signUpButton]}>
+            <TouchableOpacity
+              style={[styles.button, styles.signUpButton]}
+              onPress={this.props.navigation.navigate("SignUp")}
+            >
               <Text style={styles.buttonText}>
                 {"sign up free".toUpperCase()}
               </Text>

@@ -4,7 +4,12 @@ import SignUp from 'SpotifyReactNative/src/components/signUp';
 
 export default createStackNavigator(
   {
-    Main,
+    Main: {
+      screen: Main,
+      navigationOptions: {
+        headerBackTitle: null,
+      },
+    },
     SignUp,
   },
   {
