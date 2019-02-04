@@ -73,4 +73,7 @@ export default StyleSheet.create({
     letterSpacing: 2,
     fontSize: 14,
   },
+  wrapperSwiper: {
+    flex: 0.3,
+  },
 });

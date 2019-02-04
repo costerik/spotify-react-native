@@ -7,6 +7,7 @@ import Video from "react-native-video";
 
 //Utilities
 import { asyncFacebookLogin } from "SpotifyReactNative/src/utilities/social-network/facebook";
+import { emailValidation } from "SpotifyReactNative/src/utilities/validations";
 
 //Assets
 import SpotifyLogo from "SpotifyReactNative/assets/images/Spotify_Logo_RGB_White.png";
