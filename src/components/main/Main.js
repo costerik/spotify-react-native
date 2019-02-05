@@ -22,6 +22,7 @@ class Main extends Component {
   };
 
   static navigationOptions = {
+    headerTransparent: true,
     header: null
   };
 
@@ -69,7 +70,7 @@ class Main extends Component {
           <View style={styles.wrapperButtons}>
             <TouchableOpacity
               style={[styles.button, styles.signUpButton]}
-              onPress={this.props.navigation.navigate("SignUp")}
+              onPress={() => this.props.navigation.navigate("SignUp")}
             >
               <Text style={styles.buttonText}>
                 {"sign up free".toUpperCase()}

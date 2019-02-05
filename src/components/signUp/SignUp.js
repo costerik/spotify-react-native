@@ -10,6 +10,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import Swiper from "react-native-swiper";
 import PropTypes from "prop-types";
+import { HeaderBackButton } from "react-navigation";
 
 //styles
 import styles from "./styles";
@@ -19,16 +20,32 @@ class SignUp extends Component {
     children: PropTypes.node
   };
 
-  static navigationOptions = {
-    headerTintColor: "white",
-    headerTransparent: true
+  static navigationOptions = ({ navigation }) => {
+    let goBack = navigation.goBack;
+    const { params = {} } = navigation.state;
+    return {
+      headerLeft: (
+        <HeaderBackButton
+          onPress={() => {
+            const { step, scrollBy } = params;
+            if (step === 0) {
+              goBack();
+            } else {
+              scrollBy(-1);
+            }
+          }}
+          tintColor="white"
+        />
+      ),
+      headerTransparent: true
+    };
   };
 
   state = {
     fadeAnim: new Animated.Value(1),
     fadeAnimII: new Animated.Value(1),
     viewIn: true,
-    step: -1
+    step: 0
   };
 
   startOpacityAnimation = (to, time) => {
@@ -37,6 +54,17 @@ class SignUp extends Component {
       duration: time
     }).start();
   };
+
+  scrollBy = index => {
+    this.refs.swiper.scrollBy(index);
+  };
+
+  componentDidMount() {
+    this.props.navigation.setParams({
+      scrollBy: this.scrollBy,
+      step: 0
+    });
+  }
 
   render() {
     const { fadeAnim, fadeAnimII, viewIn, step } = this.state;
@@ -54,25 +82,34 @@ class SignUp extends Component {
             <Swiper
               ref="swiper"
               showsPagination={false}
+              loop={false}
               scrollEnabled={false}
-              onIndexChanged={index => console.log("New index", index)}
+              onIndexChanged={index => {
+                this.setState({ step: index });
+                this.props.navigation.setParams({ step: index });
+              }}
             >
-              <Animated.View style={{ ...styles.fieldset, opacity: fadeAnim }}>
+              <View style={{ ...styles.fieldset, opacity: fadeAnim }}>
                 <Text style={styles.fieldsetTitle}>What's your email?</Text>
                 <TextInput style={styles.fieldsetInput} />
                 <Text style={styles.fieldsetWarn}>
                   You'll need to confirm this email later.
                 </Text>
-              </Animated.View>
-              <Animated.View
-                style={{ ...styles.fieldset, opacity: fadeAnimII }}
-              >
+              </View>
+              <View style={{ ...styles.fieldset, opacity: fadeAnimII }}>
                 <Text style={styles.fieldsetTitle}>Create a password</Text>
                 <TextInput style={styles.fieldsetInput} />
                 <Text style={styles.fieldsetWarn}>
                   Use at least 8 characters.
                 </Text>
-              </Animated.View>
+              </View>
+              <View style={{ ...styles.fieldset, opacity: fadeAnimII }}>
+                <Text style={styles.fieldsetTitle}>
+                  What's your date of birth?
+                </Text>
+                <TextInput style={styles.fieldsetInput} />
+                <Text style={styles.fieldsetWarn} />
+              </View>
             </Swiper>
           </View>
           <View style={styles.wrapperButton}>
@@ -84,12 +121,23 @@ class SignUp extends Component {
                 //} else {
                 //this.startOpacityAnimation(1, 500);
                 //}
+                const {
+                  swiper: {
+                    props: { children }
+                  }
+                } = this.refs;
+
                 this.setState(
                   {
                     viewIn: !viewIn,
-                    step: step === 1 ? -1 : 1
+                    step: step < children.length ? step + 1 : step
                   },
-                  () => this.refs.swiper.scrollBy(this.state.step)
+                  () => {
+                    this.refs.swiper.scrollBy(
+                      this.state.step < children.length ? 1 : 0
+                    );
+                    this.props.navigation.setParams({ step: this.state.step });
+                  }
                 );
               }}
             >
