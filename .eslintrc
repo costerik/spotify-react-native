@@ -4,26 +4,37 @@
     "prettier",
     "prettier/react"
   ],
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true,
+    "node": true
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
+    {
+      "extensions": [
+        ".js",
+      ".jsx",
+      ".json",
+      ".android.js",
+      ".ios.js"
+      ]
+    }
     ],
     "prettier/prettier": [
       "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 100
-      }
+    {
+      "trailingComma": "es5",
+      "singleQuote": true,
+      "printWidth": 100
+    }
     ]
   },
   "plugins": [
     "prettier"
-  ]
+  ],
+  "settings": {
+    "import/resolver": "reactnative"
+  },
 }
